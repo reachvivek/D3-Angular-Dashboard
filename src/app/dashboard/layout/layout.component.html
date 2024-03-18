@@ -1,11 +1,18 @@
-<div class="row">
+<p-splitter
+  [panelSizes]="[20, 80]"
+  [style]="{ height: '100vh' }"
+  styleClass="m-0 p-0 border border-0"
+>
   <!-- Filters Section -->
-  <div class="col-md-2 col-sm-4 col-12">
-    <app-filters></app-filters>
-  </div>
-
+  <ng-template pTemplate>
+    <div class="col align-items-center justify-content-center bg-dark">
+      <app-filters></app-filters>
+    </div>
+  </ng-template>
   <!-- Charts Section -->
-  <div class="col-md-10 col-sm-8 col-12">
-    <app-charts></app-charts>
-  </div>
-</div>
+  <ng-template pTemplate>
+    <div class="col align-items-center justify-content-center">
+      <app-charts></app-charts>
+    </div>
+  </ng-template>
+</p-splitter>

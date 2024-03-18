@@ -11,13 +11,19 @@ Filters to be added:
 8. Add SWOT filter in the dashboard -> TODO
 9. City - NOT PROVIDED IN JSON DATA -> TODO
 -->
-<div class="p-2 pt-3">
+<div class="p-2 pt-3 text-light">
   <h3>Filters</h3>
   <div class="pt-2">
     <!-- Start Year Dropdown -->
     <p-dropdown
       [options]="startYears"
-      [style]="{ width: '220px' }"
+      [styleClass]="'text-light'"
+      [style]="{
+        width: '220px',
+        outline: '0',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedStartYear"
       optionLabel="name"
       [filter]="true"
@@ -30,7 +36,11 @@ Filters to be added:
     <!-- End Year Dropdown -->
     <p-dropdown
       [options]="endYears"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedEndYear"
       optionLabel="name"
       [filter]="true"
@@ -43,7 +53,11 @@ Filters to be added:
     <!--Topics Dropdown -->
     <p-dropdown
       [options]="topics"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedTopic"
       optionLabel="name"
       [filter]="true"
@@ -56,7 +70,11 @@ Filters to be added:
     <!--Sector Dropdown -->
     <p-dropdown
       [options]="sectors"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedSector"
       optionLabel="name"
       [filter]="true"
@@ -69,7 +87,11 @@ Filters to be added:
     <!--Region Dropdown -->
     <p-dropdown
       [options]="regions"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedRegion"
       optionLabel="name"
       [filter]="true"
@@ -82,7 +104,11 @@ Filters to be added:
     <!--PESTLE Dropdown -->
     <p-dropdown
       [options]="pestles"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedPestle"
       optionLabel="name"
       [filter]="true"
@@ -95,7 +121,11 @@ Filters to be added:
     <!-- Sources Dropdown -->
     <p-dropdown
       [options]="sources"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedSource"
       optionLabel="name"
       [filter]="true"
@@ -108,7 +138,11 @@ Filters to be added:
     <!-- Countries Dropdown -->
     <p-dropdown
       [options]="countries"
-      [style]="{ width: '220px' }"
+      [style]="{
+        width: '220px',
+        backgroundColor: 'inherit',
+        borderColor: '#696969',
+      }"
       [(ngModel)]="selectedCountry"
       optionLabel="name"
       [filter]="true"

@@ -17,6 +17,7 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
+import { SplitterModule } from 'primeng/splitter';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxChartsModule,
+    SplitterModule,
   ],
   providers: [
     provideClientHydration(),

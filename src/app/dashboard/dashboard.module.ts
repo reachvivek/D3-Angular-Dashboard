@@ -14,6 +14,7 @@ import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { NormalizedAreaChartComponent } from './charts/normalized-area-chart/normalized-area-chart.component';
+import { SplitterModule } from 'primeng/splitter';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NormalizedAreaChartComponent } from './charts/normalized-area-chart/nor
     DropdownModule,
     FormsModule,
     NgxChartsModule,
+    SplitterModule,
   ],
 })
 export class DashboardModule {}
