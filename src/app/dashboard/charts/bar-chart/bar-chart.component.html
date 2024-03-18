@@ -6,11 +6,15 @@
   [xAxis]="showXAxis"
   [yAxis]="showYAxis"
   [legend]="showLegend"
+  [legendTitle]="legendTitle"
   [showXAxisLabel]="showXAxisLabel"
   [showYAxisLabel]="showYAxisLabel"
+  [showDataLabel]="showDataLabel"
   [xAxisLabel]="xAxisLabel"
   [yAxisLabel]="yAxisLabel"
   (select)="onSelect($event)"
   (activate)="onActivate($event)"
   (deactivate)="onDeactivate($event)"
 ></ngx-charts-bar-horizontal-stacked>
+
+<app-loader *ngIf="isLoading"></app-loader>

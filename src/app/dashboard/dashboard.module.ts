@@ -15,6 +15,7 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { NormalizedAreaChartComponent } from './charts/normalized-area-chart/normalized-area-chart.component';
 import { SplitterModule } from 'primeng/splitter';
+import { LoaderComponent } from '../standalone/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SplitterModule } from 'primeng/splitter';
     NormalizedAreaChartComponent,
   ],
   imports: [
+    LoaderComponent,
     CommonModule,
     DashboardRoutingModule,
     DropdownModule,

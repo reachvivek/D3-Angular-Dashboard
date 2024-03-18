@@ -8,6 +8,8 @@ import { DataService } from '../../../swagger';
   styleUrl: './filters.component.scss',
 })
 export class FiltersComponent implements OnInit {
+  isLoading: boolean = true;
+
   startYears: [] = [];
   endYears: [] = [];
   topics: [] = [];
@@ -57,5 +59,6 @@ export class FiltersComponent implements OnInit {
     if (filters.source) {
       this.sources = filters.source;
     }
+    this.isLoading = false;
   }
 }

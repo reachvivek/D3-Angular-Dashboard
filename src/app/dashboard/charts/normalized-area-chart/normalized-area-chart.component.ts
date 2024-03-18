@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-normalized-area-chart',
   templateUrl: './normalized-area-chart.component.html',
   styleUrl: './normalized-area-chart.component.scss',
 })
-export class NormalizedAreaChartComponent {
+export class NormalizedAreaChartComponent implements OnInit {
+  isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [
     {
@@ -194,5 +195,8 @@ export class NormalizedAreaChartComponent {
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  async ngOnInit(): Promise<void> {
+    this.isLoading = false;
   }
 }

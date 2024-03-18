@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrl: './line-chart.component.scss',
 })
-export class LineChartComponent {
+export class LineChartComponent implements OnInit {
+  isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [
     {
@@ -196,5 +197,8 @@ export class LineChartComponent {
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  async ngOnInit(): Promise<void> {
+    this.isLoading = false;
   }
 }

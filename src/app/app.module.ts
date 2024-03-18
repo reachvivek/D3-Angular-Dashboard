@@ -19,10 +19,12 @@ import {
 } from '@angular/platform-browser/animations';
 import { SplitterModule } from 'primeng/splitter';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { LoaderComponent } from './standalone/loader/loader.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    LoaderComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

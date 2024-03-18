@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrl: './pie-chart.component.scss',
 })
-export class PieChartComponent {
+export class PieChartComponent implements OnInit {
+  isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [
     {
@@ -64,5 +65,8 @@ export class PieChartComponent {
 
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  async ngOnInit(): Promise<void> {
+    this.isLoading = false;
   }
 }

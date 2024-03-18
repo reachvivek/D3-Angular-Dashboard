@@ -1,139 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bar-chart',
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.scss',
 })
-export class BarChartComponent {
+export class BarChartComponent implements OnInit {
+  isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [
     {
-      name: 'Germany',
-      series: [
-        {
-          name: '2010',
-          value: 40632,
-          extra: {
-            code: 'de',
-          },
-        },
-        {
-          name: '2000',
-          value: 36953,
-          extra: {
-            code: 'de',
-          },
-        },
-        {
-          name: '1990',
-          value: 31476,
-          extra: {
-            code: 'de',
-          },
-        },
-      ],
-    },
-    {
       name: 'United States',
       series: [
-        {
-          name: '2010',
-          value: 0,
-          extra: {
-            code: 'us',
-          },
-        },
-        {
-          name: '2000',
-          value: 45986,
-          extra: {
-            code: 'us',
-          },
-        },
-        {
-          name: '1990',
-          value: 37060,
-          extra: {
-            code: 'us',
-          },
-        },
+        { name: 'Low', value: 48 },
+        { name: 'High', value: 32 },
       ],
     },
     {
-      name: 'France',
+      name: 'Iran',
       series: [
-        {
-          name: '2010',
-          value: 36745,
-          extra: {
-            code: 'fr',
-          },
-        },
-        {
-          name: '2000',
-          value: 34774,
-          extra: {
-            code: 'fr',
-          },
-        },
-        {
-          name: '1990',
-          value: 29476,
-          extra: {
-            code: 'fr',
-          },
-        },
+        { name: 'Low', value: 72 },
+        { name: 'Low', value: 60 },
       ],
     },
-    {
-      name: 'United Kingdom',
-      series: [
-        {
-          name: '2010',
-          value: 36240,
-          extra: {
-            code: 'uk',
-          },
-        },
-        {
-          name: '2000',
-          value: 32543,
-          extra: {
-            code: 'uk',
-          },
-        },
-        {
-          name: '1990',
-          value: 26424,
-          extra: {
-            code: 'uk',
-          },
-        },
-      ],
-    },
+    { name: 'Saudi Arabia', series: [{ name: 'Low', value: 72 }] },
+    { name: 'Egypt', series: [{ name: 'Low', value: 48 }] },
+    { name: 'Russia', series: [{ name: 'Low', value: 24 }] },
+    { name: 'Brazil', series: [{ name: 'Low', value: 48 }] },
+    { name: 'Japan', series: [{ name: 'Low', value: 60 }] },
+    { name: 'India', series: [{ name: 'Low', value: 48 }] },
   ];
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = false;
   showLegend: boolean = true;
   showXAxisLabel: boolean = true;
-  yAxisLabel: string = 'Country';
   showYAxisLabel: boolean = true;
-  xAxisLabel: string = 'Impact';
-  colorScheme: any = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
-  };
-  constructor() {}
+  showDataLabel: boolean = true;
+  legendTitle: string = 'Impact';
+  xAxisLabel: string = 'Intensity';
+  yAxisLabel: string = 'Country';
+  colorScheme: any = 'forest';
   onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
   onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+    // console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
   onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  constructor() {}
+  async ngOnInit(): Promise<void> {
+    this.isLoading = false;
   }
 }
