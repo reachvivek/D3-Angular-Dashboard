@@ -1,53 +1,113 @@
 <!-- Filters Section -->
+<!--
+Filters to be added: 
+1. Add start and end year filter in the dashboard ✅
+2. Add topics filters in the dashboard ✅
+3. Add sector filter in the dashboard ✅
+4. Add region filter in the dashboard ✅
+5. Add PEST filter in the dashboard ✅
+6. Add Source filter in the dashboard ✅
+7. Country ✅
+8. Add SWOT filter in the dashboard -> TODO
+9. City - NOT PROVIDED IN JSON DATA -> TODO
+-->
 <div>
-  <h2>Filters</h2>
-  <div>
-    <label>End Year</label>
-    <input type="number" />
+  <div class="row">
+    <div class="col-sm-2">
+      <!-- Start Year Dropdown -->
+      <p-dropdown
+        [options]="startYears"
+        [(ngModel)]="selectedStartYear"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Start Year"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!-- End Year Dropdown -->
+      <p-dropdown
+        [options]="endYears"
+        [(ngModel)]="selectedEndYear"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="End Year"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!--Topics Dropdown -->
+      <p-dropdown
+        [options]="topics"
+        [(ngModel)]="selectedTopic"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Topic"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!--Sector Dropdown -->
+      <p-dropdown
+        [options]="sectors"
+        [(ngModel)]="selectedSector"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Sector"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!--Region Dropdown -->
+      <p-dropdown
+        [options]="regions"
+        [(ngModel)]="selectedRegion"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Region"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!--PESTLE Dropdown -->
+      <p-dropdown
+        [options]="pestles"
+        [(ngModel)]="selectedPestle"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Pestle"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!-- Sources Dropdown -->
+      <p-dropdown
+        [options]="sources"
+        [(ngModel)]="selectedSource"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Source"
+      ></p-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <!-- Countries Dropdown -->
+      <p-dropdown
+        [options]="countries"
+        [(ngModel)]="selectedCountry"
+        optionLabel="name"
+        [filter]="true"
+        filterBy="name"
+        [showClear]="true"
+        placeholder="Select a Country"
+      ></p-dropdown>
+    </div>
   </div>
-  <div>
-    <label>Topics</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>Sector</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>Region</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>PEST</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>Source</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>SWOT</label>
-    <select>
-      <option value="">All</option>
-    </select>
-  </div>
-  <div>
-    <label>Country</label>
-    <input type="text" />
-  </div>
-  <div>
-    <label>City</label>
-    <input type="text" />
-  </div>
-  <!-- Add more filters as needed -->
 </div>
