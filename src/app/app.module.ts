@@ -17,6 +17,7 @@ import {
   BrowserAnimationsModule,
   provideAnimations,
 } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import {
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxChartsModule,
   ],
   providers: [
     provideClientHydration(),

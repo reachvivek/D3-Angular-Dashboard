@@ -1,13 +1,21 @@
 <!-- Charts Section -->
-<div>
-  <h2>Charts</h2>
-  <!-- Chart 1 Bar Chart for Intensity, Likelihood, and Relevance -->
-  <canvas id="barChart"></canvas>
-  <!-- Chart 2 Line Chart for Yearly Trends -->
-  <canvas id="lineChart"></canvas>
-  <!-- Chart 3 Map for Geographical Distribution -->
-  <div id="map"></div>
-  <!-- Chart 4 Pie Chart for Topic Distribution -->
-  <canvas id="pieChart"></canvas>
-  <!-- Add more charts as needed -->
+<div class="pt-3 text-center">
+  <h3>Visual Dashboard</h3>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-bar-chart></app-bar-chart>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-line-chart></app-line-chart>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-pie-chart></app-pie-chart>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <app-normalized-area-chart></app-normalized-area-chart>
+    </div>
+  </div>
 </div>
