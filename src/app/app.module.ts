@@ -20,6 +20,8 @@ import {
 import { SplitterModule } from 'primeng/splitter';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { LoaderComponent } from './standalone/loader/loader.component';
+import { BASE_PATH } from '../swagger';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +36,7 @@ import { LoaderComponent } from './standalone/loader/loader.component';
     SplitterModule,
   ],
   providers: [
+    { provide: BASE_PATH, useValue: environment.BASE_PATH },
     provideClientHydration(),
     provideAnimations(),
     provideHttpClient(withFetch(), withInterceptorsFromDi()),

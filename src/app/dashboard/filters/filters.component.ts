@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, first, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { DataService } from '../../../swagger';
+import { FilterService } from '../../filter.service';
 
 @Component({
   selector: 'app-filters',
@@ -19,22 +20,16 @@ export class FiltersComponent implements OnInit {
   regions: [] = [];
   countries: [] = [];
 
-  selectedStartYear: number | undefined;
-  selectedEndYear: number | undefined;
-  selectedTopic: string | undefined;
-  selectedSector: string | undefined;
-  selectedPestle: string | undefined;
-  selectedSource: string | undefined;
-  selectedRegion: string | undefined;
-  selectedCountry: string | undefined;
+  selectedStartYear: any;
+  selectedEndYear: any;
+  selectedTopic: any;
+  selectedSector: any;
+  selectedPestle: any;
+  selectedSource: any;
+  selectedRegion: any;
+  selectedCountry: any;
 
-  constructor(private dataService: DataService) {}
-
-  async ngOnInit(): Promise<void> {
-    const filters = await firstValueFrom(this.dataService.fetchAllFilters())
-      .then((resp) => resp)
-      .catch((err) => err);
-
+  populateFilters(filters: any) {
     if (filters.start_year) {
       this.startYears = filters.start_year;
     }
@@ -59,6 +54,36 @@ export class FiltersComponent implements OnInit {
     if (filters.source) {
       this.sources = filters.source;
     }
+  }
+
+  constructor(
+    private dataService: DataService,
+    public filterService: FilterService
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    const filters = await firstValueFrom(this.dataService.fetchAllFilters())
+      .then((resp) => resp)
+      .catch((err) => err);
+
+    this.populateFilters(filters);
+
     this.isLoading = false;
+  }
+
+  filterChangeHandler(dropdownIdentifier: string) {
+    let filtersApplied = [
+      this.selectedStartYear,
+      this.selectedEndYear,
+      undefined,
+      this.selectedSector,
+      this.selectedTopic,
+      this.selectedRegion,
+      this.selectedPestle,
+      this.selectedSource,
+      this.selectedCountry,
+    ];
+
+    this.filterService.emitFilterChange([...filtersApplied]);
   }
 }

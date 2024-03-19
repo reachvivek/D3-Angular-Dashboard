@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Subscription, firstValueFrom } from 'rxjs';
 import { DataService } from '../../../../swagger';
+import { FilterService } from '../../../filter.service';
 
 @Component({
   selector: 'app-horizontally-stacked-bar-chart',
@@ -8,6 +9,8 @@ import { DataService } from '../../../../swagger';
   styleUrl: './horizontally-stacked-bar-chart.component.scss',
 })
 export class HorizontallyStackedBarChartComponent implements OnInit {
+  filters: Subscription | undefined;
+
   isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [];
@@ -33,20 +36,60 @@ export class HorizontallyStackedBarChartComponent implements OnInit {
   onDeactivate(data: any): void {
     // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  constructor(private dataService: DataService) {}
-  async ngOnInit(): Promise<void> {
-    const response = await firstValueFrom(
-      this.dataService.stackedBarChartData()
-    )
-      .then((resp) => resp)
-      .catch((err) => err);
+  constructor(
+    private dataService: DataService,
+    public filterService: FilterService
+  ) {}
+
+  ngOnInit(): void {
+    this.filters = this.filterService.filterChanged.subscribe((filter) => {
+      this.updateChartData(filter);
+    });
+
+    this.loadData();
+  }
+
+  async updateChartData(filter: any[]): Promise<void> {
+    try {
+      this.isLoading = true;
+      const response = await firstValueFrom(
+        this.dataService.stackedBarChartData(...filter)
+      );
+      this.handleDataResponse(response);
+    } catch (error) {
+      this.handleDataError(error);
+    }
+  }
+
+  async loadData(): Promise<void> {
+    try {
+      const response = await firstValueFrom(
+        this.dataService.stackedBarChartData()
+      );
+      this.handleDataResponse(response);
+    } catch (error) {
+      this.handleDataError(error);
+    }
+  }
+
+  private handleDataResponse(response: any): void {
     if (response && response.length) {
       this.data = response;
-      this.isLoading = false;
     } else {
-      this.isLoading = true;
-      alert('Failed fetching data from server for Stacked Bar Chart');
-      alert(response);
+      // alert('Horizontally Stacked Bar Chart Has Received No Data'); Todo
+    }
+    this.isLoading = false;
+  }
+
+  private handleDataError(error: any): void {
+    console.error('Error fetching data:', error);
+    alert('An error occurred while fetching data');
+    this.isLoading = false;
+  }
+
+  ngOnDestroy() {
+    if (this.filters) {
+      this.filters.unsubscribe();
     }
   }
 }

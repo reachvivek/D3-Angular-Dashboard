@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Subscription, firstValueFrom } from 'rxjs';
 import { DataService } from '../../../../swagger';
+import { FilterService } from '../../../filter.service';
 
 @Component({
   selector: 'app-line-chart',
@@ -8,6 +9,8 @@ import { DataService } from '../../../../swagger';
   styleUrl: './line-chart.component.scss',
 })
 export class LineChartComponent implements OnInit {
+  filters: Subscription | undefined;
+
   isLoading: boolean = true;
   view: [number, number] = [500, 300];
   data: any = [];
@@ -36,20 +39,16 @@ export class LineChartComponent implements OnInit {
   onDeactivate(data: any): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
-  constructor(private dataService: DataService) {}
-  async ngOnInit(): Promise<void> {
-    const response = await firstValueFrom(this.dataService.lineChartData())
-      .then((resp) => resp)
-      .catch((err) => err);
-    if (response && response.length) {
-      this.data = response;
-      this.transformData();
-      this.isLoading = false;
-    } else {
-      alert('Failed to get response from server for Line Chart!');
-      alert(response);
-      this.isLoading = true;
-    }
+  constructor(
+    private dataService: DataService,
+    private filterService: FilterService
+  ) {}
+  ngOnInit(): void {
+    this.filters = this.filterService.filterChanged.subscribe((filter) => {
+      this.updateChartData(filter);
+    });
+
+    this.loadData();
   }
 
   transformData() {
@@ -60,6 +59,49 @@ export class LineChartComponent implements OnInit {
         const date = new Date(item.name);
         item.name = date;
       }
+    }
+  }
+
+  async updateChartData(filter: any[]): Promise<void> {
+    try {
+      this.isLoading = true;
+      const response = await firstValueFrom(
+        this.dataService.lineChartData(...filter)
+      );
+      this.handleDataResponse(response);
+    } catch (error) {
+      this.handleDataError(error);
+    }
+  }
+
+  async loadData(): Promise<void> {
+    try {
+      const response = await firstValueFrom(this.dataService.lineChartData());
+      this.handleDataResponse(response);
+    } catch (error) {
+      this.handleDataError(error);
+    }
+  }
+
+  private handleDataResponse(response: any): void {
+    if (response && response.length) {
+      this.data = response;
+      this.transformData();
+    } else {
+      // alert('Line Chart Has Received No Data');
+    }
+    this.isLoading = false;
+  }
+
+  private handleDataError(error: any): void {
+    console.error('Error fetching data:', error);
+    alert('An error occurred while fetching data');
+    this.isLoading = false;
+  }
+
+  ngOnDestroy() {
+    if (this.filters) {
+      this.filters.unsubscribe();
     }
   }
 }

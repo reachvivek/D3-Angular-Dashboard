@@ -26,6 +26,7 @@ Filters to be added:
       }"
       [(ngModel)]="selectedStartYear"
       optionLabel="name"
+      (onChange)="filterChangeHandler('start_year')"
       [filter]="true"
       filterBy="name"
       [showClear]="true"
@@ -42,6 +43,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedEndYear"
+      (onChange)="filterChangeHandler('end_year')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -59,6 +61,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedTopic"
+      (onChange)="filterChangeHandler('topic')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -76,6 +79,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedSector"
+      (onChange)="filterChangeHandler('sector')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -93,6 +97,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedRegion"
+      (onChange)="filterChangeHandler('region')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -110,6 +115,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedPestle"
+      (onChange)="filterChangeHandler('pestle')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -127,6 +133,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedSource"
+      (onChange)="filterChangeHandler('source')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
@@ -144,6 +151,7 @@ Filters to be added:
         borderColor: '#696969',
       }"
       [(ngModel)]="selectedCountry"
+      (onChange)="filterChangeHandler('country')"
       optionLabel="name"
       [filter]="true"
       filterBy="name"
