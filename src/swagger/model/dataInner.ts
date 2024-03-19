@@ -1,6 +1,6 @@
 /**
- * Blackcoffer
- * Server of Blackcoffer Assignment
+ * Blackcoffer Assignment
+ * Backend server defining RESTful APIs of Blackcoffer Frontend
  *
  * OpenAPI spec version: 2.0.0
  * Contact: rogerthatvksingh@gmail.com

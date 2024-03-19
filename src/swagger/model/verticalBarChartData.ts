@@ -9,7 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DataInner } from './dataInner';
 
-export interface Data extends Array<DataInner> { 
+export interface VerticalBarChartData { 
+    /**
+     * The name or label of the category or bar (e.g., \"Oil\", \"Gas\")
+     */
+    name?: string;
+    /**
+     * The numerical value or height of the bar
+     */
+    value?: number;
 }

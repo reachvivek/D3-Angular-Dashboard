@@ -9,7 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DataInner } from './dataInner';
+import { LineSeriesItem } from './lineSeriesItem';
 
-export interface Data extends Array<DataInner> { 
+export interface LineChartData { 
+    /**
+     * The name of the series (e.g., \"Social\", \"Lifestyles\")
+     */
+    name?: string;
+    series?: Array<LineSeriesItem>;
 }

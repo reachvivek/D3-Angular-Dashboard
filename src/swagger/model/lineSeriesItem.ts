@@ -9,7 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DataInner } from './dataInner';
 
-export interface Data extends Array<DataInner> { 
+export interface LineSeriesItem { 
+    /**
+     * The numerical value for the data point
+     */
+    value?: number;
+    /**
+     * The timestamp associated with the data point
+     */
+    name?: string;
 }

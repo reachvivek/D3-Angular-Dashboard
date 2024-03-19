@@ -10,10 +10,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { HorizontallyStackedBarChartComponent } from './charts/horizontally-stacked-bar-chart/horizontally-stacked-bar-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
-import { NormalizedAreaChartComponent } from './charts/normalized-area-chart/normalized-area-chart.component';
+import { VerticalBarChartComponent } from './charts/vertical-bar-chart/vertical-bar-chart.component';
 import { SplitterModule } from 'primeng/splitter';
 import { LoaderComponent } from '../standalone/loader/loader.component';
 
@@ -22,10 +22,10 @@ import { LoaderComponent } from '../standalone/loader/loader.component';
     ChartsComponent,
     FiltersComponent,
     LayoutComponent,
-    BarChartComponent,
+    HorizontallyStackedBarChartComponent,
     LineChartComponent,
     PieChartComponent,
-    NormalizedAreaChartComponent,
+    VerticalBarChartComponent,
   ],
   imports: [
     LoaderComponent,

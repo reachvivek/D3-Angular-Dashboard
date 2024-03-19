@@ -9,7 +9,14 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DataInner } from './dataInner';
 
-export interface Data extends Array<DataInner> { 
+export interface StackedSeriesData { 
+    /**
+     * The category name (e.g., \"Low\", \"High\")
+     */
+    name?: string;
+    /**
+     * The value associated with the category
+     */
+    value?: number;
 }

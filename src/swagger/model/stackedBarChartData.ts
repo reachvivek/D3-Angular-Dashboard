@@ -9,7 +9,12 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DataInner } from './dataInner';
+import { StackedSeriesData } from './stackedSeriesData';
 
-export interface Data extends Array<DataInner> { 
+export interface StackedBarChartData { 
+    /**
+     * The name of the country
+     */
+    name?: string;
+    series?: Array<StackedSeriesData>;
 }
