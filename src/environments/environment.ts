@@ -1,3 +1,3 @@
 export const environment = {
-  BASE_PATH: 'http://localhost:3000',
+  BASE_PATH: 'https://d3-dashboard-backend-o1nk.onrender.com',
 };
